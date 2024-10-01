@@ -49,8 +49,26 @@ const ListCertificates = () => {
             name: 'DATUM',
             selector: row => moment(row.created_at).format('DD.MM.YYYY'),
             sortable: true,
+        },
+        {
+            name: 'Aktion',
+            cell: row => (
+                <button 
+                    onClick={() => handleActionClick(row)} 
+                    className="btn btn-primary"
+                >
+                    View
+                </button>
+            ),
         }
     ];
+
+    const handleActionClick = (row) => {
+        // Define what happens when the button is clicked.
+        // You can navigate to a new page or perform any other action.
+        console.log(row); // For example, log the row data.
+        // Example: navigate(`/details/${row.id}`);
+    };
 
     const downloadExcel = (event) => {
         event.preventDefault()
